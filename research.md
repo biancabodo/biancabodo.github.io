@@ -4,11 +4,6 @@
   <a href="/cv" style="margin: 0 20px; font-size: 1.1em; color: #666; text-decoration: none;">CV</a>
 </nav>
 <hr>
----
-layout: default
-title: Research
----
-
 # Research and Projects
 
 ### Methods for applying 2D architectural styles to 3D architectural models

@@ -4,8 +4,6 @@ title: Projects
 permalink: /projects/
 ---
 
-# Projects
-
 ## 3D architecture & style transfer
 - Research project applying neural style transfer to architectural models.
 

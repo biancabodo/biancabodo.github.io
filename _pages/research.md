@@ -4,8 +4,6 @@ title: Research
 permalink: /research/
 ---
 
-# Research
-
 ## MEng Dissertation (2024)
 **Title:** Methods for applying 2D architectural styles to 3D architectural models
 

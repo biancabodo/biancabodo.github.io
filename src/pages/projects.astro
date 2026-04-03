@@ -1,20 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const projects = [
+const active = [
   {
-    title: '2D→3D Architectural Style Transfer',
-    tags: ['TensorFlow', 'VGG-19', 'MiDaS', 'Python'],
+    title: 'LifeOS',
+    tags: ['FastAPI', 'React', 'Python', 'Monte Carlo'],
     description:
-      'MEng dissertation project. Applied neural style transfer to 3D architectural models using depth estimation and mesh projection, translating 2D architectural styles onto 3D geometry.',
-    link: '/assets/pdf/BiancaBodo_Dissertation.pdf',
-    linkLabel: 'Read dissertation',
+      'Personal finance calculator covering the things UK 20-somethings actually care about: deposits, savings timelines, student loans, and investment targets.',
   },
   {
     title: 'Chase UK FAQ RAG System',
     tags: ['Python', 'HNSWLib', 'Azure OpenAI', 'Litestar', 'GraphQL'],
     description:
       'Production RAG pipeline for Chase UK\'s mobile banking FAQ assistant. Async Python monorepo with LLM-driven re-ranking, multi-layer safety guardrails, and React 19 frontend. Deployed on AWS EKS via Terraform.',
+  },
+];
+
+const past = [
+  {
+    title: '2D→3D Architectural Style Transfer',
+    tags: ['TensorFlow', 'VGG-19', 'MiDaS', 'Python'],
+    description:
+      'MEng dissertation project. Applied neural style transfer to 3D architectural models using depth estimation and mesh projection, translating 2D architectural styles onto 3D geometry. Published in the Bartlett Show 2022 Book.',
+    link: '/assets/pdf/BiancaBodo_Dissertation.pdf',
+    linkLabel: 'Read dissertation',
   },
   {
     title: 'Pit Signal Accuracy — Alpine F1',
@@ -28,37 +37,54 @@ const projects = [
     description:
       'Analysed 3DX engineering logs to identify 80% of process divergences across three model years. Findings adopted by Enterprise Architecture and PLM teams.',
   },
-  {
-    title: 'LifeOS',
-    tags: ['FastAPI', 'React', 'Python', 'Monte Carlo'],
-    description:
-      'Personal finance calculator covering the things UK 20-somethings actually care about: deposits, savings timelines, student loans, and investment targets.',
-  },
 ];
 ---
 <Layout title="Projects">
   <h1 class="text-3xl font-semibold text-[#2c1f1e] mb-10">Projects</h1>
 
-  <div class="grid gap-6">
-    {projects.map(p => (
-      <div class="bg-white/60 border border-[#f5cfc3] rounded-2xl p-6 hover:border-[#edaa97] transition-colors">
-        <h2 class="font-semibold text-[#2c1f1e] mb-2">{p.title}</h2>
-        <div class="flex flex-wrap gap-2 mb-3">
-          {p.tags.map(t => (
-            <span class="text-xs px-2 py-0.5 bg-[#fae8e0] text-[#b85a52] rounded-full">{t}</span>
-          ))}
+  <section class="mb-12">
+    <h2 class="text-xs uppercase tracking-widest text-[#9a7878] mb-5">Active</h2>
+    <div class="grid gap-6">
+      {active.map(p => (
+        <div class="bg-white/60 border border-[#f5cfc3] rounded-2xl p-6 hover:border-[#edaa97] transition-colors">
+          <div class="flex items-center gap-2 mb-2">
+            <h3 class="font-semibold text-[#2c1f1e]">{p.title}</h3>
+            <span class="text-xs px-2 py-0.5 bg-[#d4756b]/10 text-[#d4756b] rounded-full">Active</span>
+          </div>
+          <div class="flex flex-wrap gap-2 mb-3">
+            {p.tags.map(t => (
+              <span class="text-xs px-2 py-0.5 bg-[#fae8e0] text-[#b85a52] rounded-full">{t}</span>
+            ))}
+          </div>
+          <p class="text-sm text-[#5a4040] leading-relaxed">{p.description}</p>
         </div>
-        <p class="text-sm text-[#5a4040] leading-relaxed mb-3">{p.description}</p>
-        {p.link && (
-          <a
-            href={p.link}
-            target="_blank"
-            class="text-xs text-[#d4756b] hover:text-[#b85a52] font-medium transition-colors"
-          >
-            {p.linkLabel} →
-          </a>
-        )}
-      </div>
-    ))}
-  </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-xs uppercase tracking-widest text-[#9a7878] mb-5">Past</h2>
+    <div class="grid gap-6">
+      {past.map(p => (
+        <div class="bg-white/60 border border-[#f5cfc3] rounded-2xl p-6 hover:border-[#edaa97] transition-colors">
+          <h3 class="font-semibold text-[#2c1f1e] mb-2">{p.title}</h3>
+          <div class="flex flex-wrap gap-2 mb-3">
+            {p.tags.map(t => (
+              <span class="text-xs px-2 py-0.5 bg-[#fae8e0] text-[#b85a52] rounded-full">{t}</span>
+            ))}
+          </div>
+          <p class="text-sm text-[#5a4040] leading-relaxed mb-3">{p.description}</p>
+          {p.link && (
+            <a
+              href={p.link}
+              target="_blank"
+              class="text-xs text-[#d4756b] hover:text-[#b85a52] font-medium transition-colors"
+            >
+              {p.linkLabel} →
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
 </Layout>

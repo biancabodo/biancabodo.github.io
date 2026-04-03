@@ -1,0 +1,76 @@
+---
+---
+<canvas id="petals" class="fixed inset-0 pointer-events-none z-50" aria-hidden="true"></canvas>
+
+<script>
+const canvas = document.getElementById('petals') as HTMLCanvasElement;
+const ctx = canvas.getContext('2d')!;
+
+let W = canvas.width = window.innerWidth;
+let H = canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+});
+
+interface Petal {
+  x: number; y: number;
+  size: number;
+  speedX: number; speedY: number;
+  rotation: number; rotSpeed: number;
+  opacity: number; wobble: number; wobbleSpeed: number;
+  color: string;
+}
+
+const COLORS = ['#f5cfc3', '#f0b8c4', '#edaa97', '#fae8e0', '#e08070'];
+const COUNT = 18;
+
+function makePetal(fromTop = false): Petal {
+  return {
+    x: Math.random() * W,
+    y: fromTop ? -20 : Math.random() * H,
+    size: 6 + Math.random() * 10,
+    speedX: (Math.random() - 0.4) * 0.6,
+    speedY: 0.4 + Math.random() * 0.7,
+    rotation: Math.random() * Math.PI * 2,
+    rotSpeed: (Math.random() - 0.5) * 0.03,
+    opacity: 0.35 + Math.random() * 0.35,
+    wobble: Math.random() * Math.PI * 2,
+    wobbleSpeed: 0.01 + Math.random() * 0.02,
+    color: COLORS[Math.floor(Math.random() * COLORS.length)],
+  };
+}
+
+function drawPetal(p: Petal) {
+  ctx.save();
+  ctx.translate(p.x, p.y);
+  ctx.rotate(p.rotation);
+  ctx.globalAlpha = p.opacity;
+  ctx.fillStyle = p.color;
+  ctx.beginPath();
+  // Simple oval petal shape
+  ctx.ellipse(0, 0, p.size * 0.45, p.size, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
+const petals: Petal[] = Array.from({ length: COUNT }, () => makePetal(false));
+
+function animate() {
+  ctx.clearRect(0, 0, W, H);
+  for (const p of petals) {
+    p.wobble += p.wobbleSpeed;
+    p.x += p.speedX + Math.sin(p.wobble) * 0.4;
+    p.y += p.speedY;
+    p.rotation += p.rotSpeed;
+    if (p.y > H + 20) {
+      Object.assign(p, makePetal(true));
+    }
+    drawPetal(p);
+  }
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>

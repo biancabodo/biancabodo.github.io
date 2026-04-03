@@ -1,23 +1,43 @@
-<nav style="text-align: center; margin-top: 30px;">
-  <a href="/" style="margin: 0 20px; font-size: 1.3em; color: #666; text-decoration: none; font-weight: bold;">Bianca Bodo</a>
-  <a href="/research" style="margin: 0 20px; font-size: 1.1em; color: #666; text-decoration: none;">Research and Projects</a>
-  <a href="/cv" style="margin: 0 20px; font-size: 1.1em; color: #666; text-decoration: none;">CV</a>
-</nav>
-<hr>
+# Astro Starter Kit: Minimal
 
-# Bianca Bodo
-_MEng Engineering & Architectural Design, UCL - Data Scientist - AI + Neuroscience_
+```sh
+npm create astro@latest -- --template minimal
+```
 
-[Portfolio](https://biancabodo.github.io/) | [LinkedIn](https://www.linkedin.com/in/bianca-bodo)
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
----
+## 🚀 Project Structure
 
-## About me
-I'm a data scientist and engineer at JPMorganChase in London, with a background in architecture and computational design.
-My research goes into how machine learning and neuroscience can inform emotionally adaptive and causally intelligent AI systems.
-I'm particularly interested in interpretable models, affective computing, and the intersection of human cognition and AI.
+Inside of your Astro project, you'll see the following folders and files:
 
-Prior to my industry experience, I earned an integrated master's degree (MEng) in Engineering and Architectural Design from University College London (2024).
-I've worked as a data science intern at Alpine F1 Team for a year (August 22/23) before my masters.
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

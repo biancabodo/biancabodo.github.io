@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const jobs = [
+  {
+    title: 'Applied Machine Learning Analyst',
+    company: 'JPMorganChase',
+    location: 'London, UK',
+    period: 'Sep 2024 – Present',
+    bullets: [
+      'Built a production RAG system for Chase UK\'s mobile banking FAQ assistant: async Python 3.13 monorepo with Litestar / Strawberry GraphQL API, HNSWLib vector search, LLM-driven re-ranking, and Azure OpenAI answer generation over HTTP/2.',
+      'Engineered multi-layer content-safety guardrails: Presidio PII/PCI detection, LLM intent analysis, and risk evaluation; maintained >80% test coverage with pytest-asyncio, Vitest property tests, and k6 load benchmarks.',
+      'Delivered the React 19 / Next.js 15 frontend with Apollo GraphQL; managed AWS infrastructure via Terraform (EKS, S3) and Helm.',
+      'Optimised inference cost by migrating from GPT-4.1 to GPT-5.1 without accuracy regression; first in the ML team to hold a hybrid role spanning traditional ML and full MLOps infrastructure.',
+    ],
+  },
+  {
+    title: 'Data Science Intern',
+    company: 'Alpine F1 Team',
+    location: 'Enstone, UK',
+    period: 'Aug 2022 – Aug 2023',
+    bullets: [
+      'Led pit-signal accuracy project: applied advanced statistical techniques and error-function minimisation to improve signal accuracy by 91%; results adopted directly by Strategy and Race Track teams.',
+      'Conducted process mining of 3DX engineering logs, identifying 80% of process divergences across three model years; findings adopted by Enterprise Architecture and PLM teams.',
+    ],
+  },
+  {
+    title: 'AI Software Developer Intern',
+    company: 'Bosch',
+    location: 'Cluj-Napoca, Romania',
+    period: 'Jul – Sep 2021',
+    bullets: [
+      'Designed an ANN-based object detection system for automotive front-facing sensors and deployed a Random Forest signal classifier to production.',
+      'Developed software architecture for an LED Matrix, integrating hardware and application layers.',
+    ],
+  },
+];
+---
+<Layout title="Work">
+  <h1 class="text-3xl font-semibold text-[#2c1f1e] mb-10">Work</h1>
+
+  <div class="space-y-12">
+    {jobs.map(job => (
+      <div class="relative pl-5 border-l-2 border-[#f0b8c4]">
+        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+          <h2 class="text-lg font-semibold text-[#2c1f1e]">{job.title}</h2>
+          <span class="text-sm text-[#9a7878]">{job.period}</span>
+        </div>
+        <p class="text-[#d4756b] font-medium text-sm mb-4">
+          {job.company} · {job.location}
+        </p>
+        <ul class="space-y-2">
+          {job.bullets.map(b => (
+            <li class="text-[#5a4040] text-sm leading-relaxed flex gap-3">
+              <span class="text-[#edaa97] mt-1.5 flex-shrink-0">◆</span>
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</Layout>

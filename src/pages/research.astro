@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Research">
+  <h1 class="text-3xl font-semibold text-[#2c1f1e] mb-10">Research</h1>
+
+  <div class="space-y-10">
+    <div class="pl-5 border-l-2 border-[#f0b8c4]">
+      <h2 class="text-lg font-semibold text-[#2c1f1e] mb-1">MEng Dissertation (2024)</h2>
+      <p class="text-[#d4756b] font-medium text-sm mb-3">UCL · The Bartlett School of Architecture</p>
+      <p class="text-[#2c1f1e] font-medium mb-3">
+        Methods for Applying 2D Architectural Styles to 3D Architectural Models through Machine Learning
+      </p>
+      <p class="text-sm text-[#5a4040] leading-relaxed mb-4">
+        Developed a pipeline combining neural style transfer with 3D depth estimation to project
+        2D architectural styles onto 3D models. Used VGG-19 for style extraction, MiDaS for
+        monocular depth estimation, and custom mesh projection in Python. Awarded publication
+        in the Bartlett Show 2022 Book — sole student selected from the third year.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-4">
+        {['TensorFlow', 'VGG-19', 'MiDaS', 'Mayavi', 'Agisoft Metashape', 'Python'].map(t => (
+          <span class="text-xs px-2 py-0.5 bg-[#fae8e0] text-[#b85a52] rounded-full">{t}</span>
+        ))}
+      </div>
+      <a href="/assets/pdf/disseration" target="_blank" class="text-sm text-[#d4756b] hover:text-[#b85a52] font-medium transition-colors">
+        Read full dissertation (PDF) →
+      </a>
+    </div>
+
+    <div>
+      <h2 class="text-lg font-semibold text-[#2c1f1e] mb-4">Research Interests</h2>
+      <ul class="space-y-3">
+        {[
+          'Interpretable deep learning and causal reasoning',
+          'Affective computing and emotion-aware systems',
+          'Human cognition and AI alignment',
+          'ML applications in high-frequency / high-stakes environments',
+        ].map(item => (
+          <li class="flex gap-3 text-sm text-[#5a4040]">
+            <span class="text-[#edaa97] mt-0.5">◆</span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</Layout>

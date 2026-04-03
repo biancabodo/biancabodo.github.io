@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="CV">
+  <div class="flex items-center justify-between mb-10">
+    <h1 class="text-3xl font-semibold text-[#2c1f1e]">CV</h1>
+    <a
+      href="/assets/pdf/biancabodo_cv_041025.pdf"
+      target="_blank"
+      class="px-4 py-2 bg-[#d4756b] text-white rounded-full text-sm font-medium hover:bg-[#b85a52] transition-colors"
+    >
+      Download PDF
+    </a>
+  </div>
+
+  <div class="space-y-10 text-sm">
+
+    <!-- Objective -->
+    <section>
+      <h2 class="text-xs uppercase tracking-widest text-[#9a7878] mb-3">Objective</h2>
+      <p class="text-[#5a4040] leading-relaxed">
+        Data scientist and ML practitioner with production experience in full-stack ML systems and
+        high-frequency data environments. Background spans GenAI product development at JPMorganChase,
+        statistical optimisation at Alpine F1, and an MEng from UCL. Looking to move into ML engineering,
+        software engineering or quant development.
+      </p>
+    </section>
+
+    <!-- Work -->
+    <section>
+      <h2 class="text-xs uppercase tracking-widest text-[#9a7878] mb-5">Experience</h2>
+      <div class="space-y-8">
+        {[
+          {
+            title: 'Applied Machine Learning Analyst',
+            org: 'JPMorganChase',
+            loc: 'London, UK',
+            period: 'Sep 2024 – Present',
+            bullets: [
+              'Built a production RAG system for Chase UK\'s mobile banking FAQ assistant: async Python 3.13 monorepo with Litestar / Strawberry GraphQL API, HNSWLib vector search, LLM-driven re-ranking, and Azure OpenAI answer generation over HTTP/2.',
+              'Engineered multi-layer content-safety guardrails: Presidio PII/PCI detection, LLM intent analysis, and risk evaluation; maintained >80% test coverage with pytest-asyncio, Vitest, and k6.',
+              'Delivered the React 19 / Next.js 15 frontend with Apollo GraphQL; managed AWS infrastructure via Terraform (EKS, S3) and Helm.',
+              'Optimised inference cost migrating from GPT-4.1 to GPT-5.1 without accuracy regression; first in the ML team to hold a hybrid role spanning traditional ML and full MLOps infrastructure.',
+            ],
+          },
+          {
+            title: 'Data Science Intern',
+            org: 'Alpine F1 Team',
+            loc: 'Enstone, UK',
+            period: 'Aug 2022 – Aug 2023',
+            bullets: [
+              'Led pit-signal accuracy project improving signal accuracy by 91% via statistical techniques and error-function minimisation; adopted by Strategy and Race Track teams.',
+              'Conducted process mining of 3DX logs identifying 80% of process divergences across three model years; adopted by Enterprise Architecture and PLM teams.',
+            ],
+          },
+          {
+            title: 'AI Software Developer Intern',
+            org: 'Bosch',
+            loc: 'Cluj-Napoca, Romania',
+            period: 'Jul – Sep 2021',
+            bullets: [
+              'Designed an ANN-based object detection system for automotive front-facing sensors; deployed a Random Forest signal classifier to production.',
+              'Developed software architecture for an LED Matrix, integrating hardware and application layers.',
+            ],
+          },
+        ].map(j => (
+          <div class="pl-4 border-l-2 border-[#f0b8c4]">
+            <div class="flex flex-wrap justify-between gap-1 mb-0.5">
+              <span class="font-medium text-[#2c1f1e]">{j.title}</span>
+              <span class="text-[#9a7878]">{j.period}</span>
+            </div>
+            <p class="text-[#d4756b] mb-3">{j.org} · {j.loc}</p>
+            <ul class="space-y-1.5">
+              {j.bullets.map(b => (
+                <li class="text-[#5a4040] leading-relaxed flex gap-2">
+                  <span class="text-[#edaa97] flex-shrink-0 mt-1">◆</span>{b}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2 class="text-xs uppercase tracking-widest text-[#9a7878] mb-5">Education</h2>
+      <div class="space-y-5">
+        <div class="pl-4 border-l-2 border-[#f0b8c4]">
+          <div class="flex flex-wrap justify-between gap-1 mb-0.5">
+            <span class="font-medium text-[#2c1f1e]">MEng Engineering and Architectural Design (2:1)</span>
+            <span class="text-[#9a7878]">2019 – 2024</span>
+          </div>
+          <p class="text-[#d4756b] mb-2">UCL · London, UK</p>
+          <ul class="space-y-1 text-[#5a4040]">
+            <li>Dissertation: Methods for applying 2D Architectural Styles to 3D Architectural Models through ML.</li>
+            <li>Published in the Bartlett Show 2022 Book — sole student selected from the third year.</li>
+          </ul>
+        </div>
+        <div class="pl-4 border-l-2 border-[#f0b8c4]">
+          <div class="flex flex-wrap justify-between gap-1 mb-0.5">
+            <span class="font-medium text-[#2c1f1e]">"Mihai Eminescu" National College</span>
+            <span class="text-[#9a7878]">2011 – 2019</span>
+          </div>
+          <p class="text-[#d4756b] mb-2">Satu Mare, Romania</p>
+          <p class="text-[#5a4040]">Diploma de Bacalaureat: 97% Physics · 94% Mathematics · 91% Romanian Literature</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <h2 class="text-xs uppercase tracking-widest text-[#9a7878] mb-4">Skills</h2>
+      <div class="space-y-2">
+        {[
+          ['Languages', 'Python (advanced — NumPy, asyncio, pytest-asyncio), SQL, C/C++, Java, MATLAB, C#'],
+          ['ML / Quant', 'RAG systems, vector search (HNSWLib), LLM evaluation, statistical modelling, error-function optimisation, time series, neural networks (CNNs, RoBERTa), process mining'],
+          ['Infrastructure', 'AWS (EKS, S3), Terraform, Docker, Kubernetes/Helm, Litestar, GraphQL, Azure OpenAI, Next.js 15 / React 19'],
+          ['Mathematics', 'Advanced calculus, linear algebra, statistical analysis, applied physics'],
+        ].map(([label, value]) => (
+          <div class="flex gap-3">
+            <span class="text-[#9a7878] w-28 flex-shrink-0">{label}</span>
+            <span class="text-[#5a4040]">{value}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Volunteering -->
+    <section>
+      <h2 class="text-xs uppercase tracking-widest text-[#9a7878] mb-4">Volunteering</h2>
+      <div class="pl-4 border-l-2 border-[#f0b8c4]">
+        <div class="flex flex-wrap justify-between gap-1 mb-0.5">
+          <span class="font-medium text-[#2c1f1e]">VP / Treasurer — UCL Artificial Intelligence Society</span>
+          <span class="text-[#9a7878]">2021 – 2024</span>
+        </div>
+        <ul class="space-y-1 text-[#5a4040] mt-2">
+          <li>Co-organised ClimateHack.AI; coordinated 100 participants across Boston and London finals.</li>
+          <li>Managed a £100,000 budget and a 23-person committee; designed workshops with leading AI researchers.</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+</Layout>

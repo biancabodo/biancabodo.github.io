@@ -3,6 +3,12 @@ import Layout from '../layouts/Layout.astro';
 
 const active = [
   {
+    title: 'AlphaSignal Research Agent',
+    tags: ['LangGraph', 'Python', 'FAISS', 'RAG', 'Anthropic', 'vectorbt'],
+    description:
+      'Multi-agent pipeline that reads SEC EDGAR 10-K and 10-Q filings and generates structured investment signals. A LangGraph graph orchestrates three agents: a RAG researcher (FAISS + MMR retrieval over filing chunks), a Claude-powered signal extractor producing cited, schema-validated directional calls, and a vectorbt backtester running a 2-year trailing window with benchmark comparison. Includes LangSmith evaluators for citation grounding, confidence calibration, and RAG faithfulness.',
+  },
+  {
     title: 'LifeOS',
     tags: ['FastAPI', 'React', 'Python', 'Monte Carlo'],
     description:
